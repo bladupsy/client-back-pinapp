@@ -28,7 +28,7 @@ dependencies {
     // JPA + Hibernate
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
-    implementation("com.microsoft.sqlserver:mssql-jdbc:12.6.1.jre11")
+    runtimeOnly("org.postgresql:postgresql")
 
     // Lombok
     implementation("org.projectlombok:lombok:1.18.30")
