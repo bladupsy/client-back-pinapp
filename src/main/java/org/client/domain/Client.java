@@ -2,7 +2,6 @@ package org.client.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import nonapi.io.github.classgraph.json.Id;
 
 import java.time.LocalDate;
 
