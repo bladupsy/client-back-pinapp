@@ -1,0 +1,29 @@
+package org.client.domain.dto;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "clients")
+@Data
+public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    private String lastname;
+
+    private int age;
+
+    private LocalDate dateOfBirth;
+
+}
