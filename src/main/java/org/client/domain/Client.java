@@ -1,11 +1,8 @@
-package org.client.domain.dto;
+package org.client.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import nonapi.io.github.classgraph.json.Id;
 
 import java.time.LocalDate;
 

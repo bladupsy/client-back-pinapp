@@ -2,27 +2,26 @@ package org.client.domain.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class ClientResponseDTO implements Serializable {
+public class ClientDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
     private String name;
     private String lastname;
     private int age;
-    private LocalDate dateOfBirth;
-    private LocalDate dateProbableDeath;
+    private LocalDate date_birth;
 
-    public ClientResponseDTO() {
+    public ClientDTO() {
     }
 
-    public ClientResponseDTO(Long id, String name, String lastname, int age, LocalDate dateOfBirth, LocalDate dateProbableDeath) {
+    public ClientDTO(Long id, String name, String lastname, int age, LocalDate date_birth) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.age = age;
-        this.dateOfBirth = dateOfBirth;
-        this.dateProbableDeath = dateProbableDeath;
+        this.date_birth = date_birth;
     }
 
     public Long getId() {
@@ -57,31 +56,22 @@ public class ClientResponseDTO implements Serializable {
         this.age = age;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getDateBirth() {
+        return date_birth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public LocalDate getDateProbableDeath() {
-        return dateProbableDeath;
-    }
-
-    public void setDateProbableDeath(LocalDate dateProbableDeath) {
-        this.dateProbableDeath = dateProbableDeath;
+    public void setDateBirth(LocalDate date_birth) {
+        this.date_birth = date_birth;
     }
 
     @Override
     public String toString() {
-        return "ClientResponseDTO{" +
+        return "ClientDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", age=" + age +
-                ", dateOfBirth=" + dateOfBirth +
-                ", dateProbableDeath=" + dateProbableDeath +
+                ", date_birth=" + date_birth +
                 '}';
     }
 }

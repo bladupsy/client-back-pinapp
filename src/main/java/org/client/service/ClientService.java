@@ -1,6 +1,6 @@
 package org.client.service;
 
-import org.client.domain.dto.Client;
+import org.client.domain.dto.ClientDTO;
 import org.client.domain.dto.ClientRequestDTO;
 import org.client.domain.dto.ClientResponseDTO;
 import org.client.domain.dto.KpiClientesDTO;
@@ -19,19 +19,19 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public void crearCliente(ClientRequestDTO dto) {
-        Client client = new Client();
+    public void crearCliente(ClientDTO dto) {
+        ClientDTO client = new ClientDTO();
         client.setName(dto.getName());
         client.setLastname(dto.getLastname());
         client.setAge(dto.getAge());
-        client.setDateOfBirth(dto.getDateOfBirth());
+        client.setDateBirth(dto.getDateBirth());
         clientRepository.save(client);
     }
 
     public KpiClientesDTO calcularKpis() {
         List<Integer> edades = clientRepository.findAll()
                 .stream()
-                .map(Client::getAge)
+                .map(ClientDTO::getAge)
                 .toList();
 
         double promedio = edades.stream().mapToInt(i -> i).average().orElse(0);
@@ -44,13 +44,13 @@ public class ClientService {
 
     public List<ClientResponseDTO> listarClientes() {
         return clientRepository.findAll().stream().map(c -> {
-            LocalDate fechaMuerteEstimada = c.getDateOfBirth().plusYears(75);
+            LocalDate fechaMuerteEstimada = c.getDateBirth().plusYears(75);
             return new ClientResponseDTO(
                     c.getId(),
                     c.getName(),
                     c.getLastname(),
                     c.getAge(),
-                    c.getDateOfBirth(),
+                    c.getDateBirth(),
                     fechaMuerteEstimada
             );
         }).toList();

@@ -1,8 +1,7 @@
 package org.client.web.rest;
 
 
-import jakarta.validation.Valid;
-import org.client.domain.dto.ClientRequestDTO;
+import org.client.domain.dto.ClientDTO;
 import org.client.domain.dto.ClientResponseDTO;
 import org.client.domain.dto.KpiClientesDTO;
 import org.client.service.ClientService;
@@ -23,7 +22,7 @@ public class ClientResource {
     }
 
     @PostMapping("/creacliente")
-    public ResponseEntity<Void> crearCliente(@RequestBody @Valid ClientRequestDTO dto) {
+    public ResponseEntity<Void> crearCliente(@RequestBody  ClientDTO dto) {
         clientService.crearCliente(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
